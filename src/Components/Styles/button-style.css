@@ -1,0 +1,20 @@
+.button-container .button-wrapper {
+  background-color: #e6e6e6;
+  padding: 0.25rem;
+  border-radius: 0.7rem;
+  outline: #656565 solid 0.5px;
+}
+
+.button-container button {
+  text-transform: uppercase;
+  padding: 0.5rem 0.75rem;
+  font-weight: bold;
+  color: #656565;
+  border-radius: 0.5rem;
+  border: none;
+  outline: #656565 solid 0.5px;
+}
+
+.button-container button:hover {
+  background-color: unset;
+}
