@@ -23,6 +23,14 @@ export default function DisplayBikes() {
     direction: "ascending",
   });
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const columns: { name: string; field: keyof Bike }[] = [
+    { name: "Make", field: "Make" },
+    { name: "Model", field: "Model" },
+    { name: "Year", field: "Year" },
+    { name: "Displacement", field: "Displacement" },
+    { name: "Price", field: "Price" },
+    { name: "Terrain", field: "Terrain" },
+  ];
 
   const getBikes = async () => {
     try {
@@ -103,30 +111,12 @@ export default function DisplayBikes() {
       </div>
       <table className='bikes-table'>
         <tr>
-          <th onClick={() => sortData("Make")}>
-            <span>Make</span>
-            <FontAwesomeIcon icon={getSortingIcon("Make")} />
-          </th>
-          <th onClick={() => sortData("Model")}>
-            <span>Model</span>
-            <FontAwesomeIcon icon={getSortingIcon("Model")} />
-          </th>
-          <th onClick={() => sortData("Year")}>
-            <span>Year</span>
-            <FontAwesomeIcon icon={getSortingIcon("Year")} />
-          </th>
-          <th onClick={() => sortData("Displacement")}>
-            <span>Displacement</span>
-            <FontAwesomeIcon icon={getSortingIcon("Displacement")} />
-          </th>
-          <th onClick={() => sortData("Price")}>
-            <span>Price</span>
-            <FontAwesomeIcon icon={getSortingIcon("Price")} />
-          </th>
-          <th onClick={() => sortData("Terrain")}>
-            <span>Terrain</span>
-            <FontAwesomeIcon icon={getSortingIcon("Terrain")} />
-          </th>
+          {columns.map((column) => (
+            <th key={column.field} onClick={() => sortData(column.field)}>
+              <span>{column.name}</span>
+              <FontAwesomeIcon icon={getSortingIcon(column.field)} />
+            </th>
+          ))}
           <th>Description</th>
         </tr>
         {filteredBikes.map((bike) => (
