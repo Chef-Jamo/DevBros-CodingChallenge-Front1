@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchBikes } from "../Services/BikeService";
 import "../Components/Styles/bikes-table-style.css";
+import "../Components/Styles/input-style.css";
 import { Bike } from "../Models/Bike";
 import Button from "./Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -36,8 +37,12 @@ export default function DisplayBikes() {
     getBikes();
   }, []);
 
-  const handleButtonClick = () => {
+  const handleClearSearchClick = () => {
     setSearchQuery("");
+  };
+
+  const handleResetTableClick = () => {
+    window.location.reload();
   };
 
   const sortData = (key: keyof Bike) => {
@@ -85,15 +90,16 @@ export default function DisplayBikes() {
 
   return (
     <div className='bikes-table-container'>
-      <h1>Bike List</h1>
       <div className='bike-table-toolbar'>
         <input
+          className='text-box'
           type='text'
           placeholder='Search...'
           value={searchQuery}
           onChange={handleSearch}
         />
-        <Button onClick={handleButtonClick} />
+        <Button onClick={handleClearSearchClick} buttonText='Clear Search' />
+        <Button onClick={handleResetTableClick} buttonText='Reset Table' />
       </div>
       <table className='bikes-table'>
         <tr>
