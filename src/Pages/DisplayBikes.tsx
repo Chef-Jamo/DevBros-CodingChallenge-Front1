@@ -3,7 +3,7 @@ import { fetchBikes } from "../Services/BikeService";
 import "../Components/Styles/bikes-table-style.css";
 import "../Components/Styles/input-style.css";
 import { Bike } from "../Models/Bike";
-import Button from "./Button";
+import Button from "../Components/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSortUp,

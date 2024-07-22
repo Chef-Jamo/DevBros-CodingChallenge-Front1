@@ -1,5 +1,5 @@
 import "./App.css";
-import DisplayBikes from "./Components/DisplayBikes";
+import DisplayBikes from "./Pages/DisplayBikes";
 
 function App() {
   return (
